@@ -5,21 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView_User;
-    ArrayList<User> list = new ArrayList<>();
+    RecyclerView rv_github;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView_User.setLayoutManager(new LinearLayoutManager(this));
-        UserAdapter userAdapter = new UserAdapter(list);
-        recyclerView_User.setAdapter(userAdapter);
+        rv_github = findViewById(R.id.rv_github);
     }
 }
