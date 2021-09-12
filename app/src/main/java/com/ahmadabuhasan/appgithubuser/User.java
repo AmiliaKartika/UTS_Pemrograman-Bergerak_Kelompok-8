@@ -1,45 +1,14 @@
 package com.ahmadabuhasan.appgithubuser;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class User implements Parcelable {
-
+class User {
     int avatar;
     String username;
     String name;
     String location;
-    int repository;
+    String repository;
     String company;
     int followers;
     int following;
-
-    protected User(Parcel in) {
-        avatar = in.readInt();
-        username = in.readString();
-        name = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    public static final Creator<User> CREATOR = new Creator<User>() {
-        @Override
-        public User createFromParcel(Parcel in) {
-            return new User(in);
-        }
-
-        @Override
-        public User[] newArray(int size) {
-            return new User[size];
-        }
-    };
 
     public int getAvatar() {
         return avatar;
@@ -73,11 +42,11 @@ public class User implements Parcelable {
         this.location = location;
     }
 
-    public int getRepository() {
+    public String getRepository() {
         return repository;
     }
 
-    public void setRepository(int repository) {
+    public void setRepository(String repository) {
         this.repository = repository;
     }
 
