@@ -1,6 +1,9 @@
 package com.ahmadabuhasan.appgithubuser;
 
-class User {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class User implements Parcelable {
     int avatar;
     String username;
     String name;
@@ -73,4 +76,47 @@ class User {
     public void setFollowing(int following) {
         this.following = following;
     }
+
+    User() {
+    }
+
+    protected User(Parcel in) {
+        avatar = in.readInt();
+        username = in.readString();
+        name = in.readString();
+        location = in.readString();
+        repository = in.readString();
+        company = in.readString();
+        followers = in.readInt();
+        following = in.readInt();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(avatar);
+        dest.writeString(username);
+        dest.writeString(name);
+        dest.writeString(location);
+        dest.writeString(repository);
+        dest.writeString(company);
+        dest.writeInt(followers);
+        dest.writeInt(following);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }
