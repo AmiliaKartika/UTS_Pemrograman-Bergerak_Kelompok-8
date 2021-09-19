@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder> {
 
-    private final ArrayList<User> listUser;
+    private ArrayList<User> listUser;
 
     public UserAdapter(ArrayList<User> list) {
         this.listUser = list;
