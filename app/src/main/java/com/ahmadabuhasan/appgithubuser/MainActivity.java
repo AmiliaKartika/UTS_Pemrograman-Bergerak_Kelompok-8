@@ -1,20 +1,19 @@
 package com.ahmadabuhasan.appgithubuser;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rv_github;
-    private ArrayList<User> list = new ArrayList<>();
+    private final ArrayList<User> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
