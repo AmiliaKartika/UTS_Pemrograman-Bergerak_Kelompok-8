@@ -1,10 +1,12 @@
 package com.ahmadabuhasan.appgithubuser;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -38,6 +40,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
                 .into(holder.img_avatar);
         holder.tv_name.setText(user.name);
         holder.tv_username.setText(user.username);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(holder.itemView.getContext(), "You choose " + user.getName(), Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(v.getContext(), UserDetailActivity.class);
+                i.putExtra(UserDetailActivity.EXTRA_USER, user);
+                v.getContext().startActivity(i);
+            }
+        });
     }
 
     @Override
