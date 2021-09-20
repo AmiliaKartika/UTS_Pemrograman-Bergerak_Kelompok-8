@@ -3,6 +3,7 @@ package com.ahmadabuhasan.appgithubuser;
 import android.annotation.SuppressLint;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,5 +49,9 @@ public class MainActivity extends AppCompatActivity {
         rv_github.setLayoutManager(new LinearLayoutManager(this));
         UserAdapter userAdapter = new UserAdapter(list);
         rv_github.setAdapter(userAdapter);
+    }
+
+    private void showSelectedHero(User user) {
+        Toast.makeText(this, "You choose " + user.getName(), Toast.LENGTH_SHORT).show();
     }
 }
