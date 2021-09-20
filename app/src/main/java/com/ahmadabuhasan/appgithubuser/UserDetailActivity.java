@@ -9,9 +9,12 @@ import android.widget.TextView;
 
 import java.util.Objects;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class UserDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "extra_user";
+    CircleImageView img_avatar_received;
     TextView tv_name_received;
 
     @Override
@@ -22,10 +25,13 @@ public class UserDetailActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        img_avatar_received = findViewById(R.id.img_avatar_received);
         tv_name_received = findViewById(R.id.tv_name_received);
 
         User user = getIntent().getParcelableExtra(EXTRA_USER);
+        int img_avatar = user.getAvatar();
         String text = user.getName();
+        img_avatar_received.setImageResource(img_avatar);
         tv_name_received.setText(text);
     }
 
