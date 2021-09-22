@@ -7,10 +7,16 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_marginLeft="8dp"
-    android:layout_marginTop="4dp"
+    android:layout_marginTop="10dp"
     android:layout_marginRight="8dp"
     android:layout_marginBottom="4dp"
-    card_view:cardCornerRadius="10dp">
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="5dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_edge_black" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -37,6 +43,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/img_avatar"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold"
             card_view:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +55,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
+            android:letterSpacing="0.1"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            card_view:drawableLeftCompat="@drawable/icon_username"
             card_view:layout_constraintBottom_toBottomOf="@id/img_avatar"
             card_view:layout_constraintEnd_toEndOf="@id/tv_name"
             card_view:layout_constraintStart_toStartOf="@id/tv_name"
