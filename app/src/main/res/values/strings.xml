@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">AppGithubUser</string>
-    <string name="location_text">Location : </string>
 
     <!-- Other string resources-->
 
