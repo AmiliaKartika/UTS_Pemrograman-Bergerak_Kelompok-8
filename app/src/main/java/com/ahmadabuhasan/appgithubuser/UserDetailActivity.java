@@ -55,11 +55,11 @@ public class UserDetailActivity extends AppCompatActivity {
         tv_name_received.setText(text);
         tv_username_received.setText("@" + text1);
         tv_location_received.setText("Location : " + text2);
-        tv_company_received.setText("Company : " + text4);
+        tv_company_received.setText("Company : " + text3);
 
         repository_received.setTextColor(Color.BLACK);
         repository_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-        repository_received.setText("Repository \n \n" + text3);
+        repository_received.setText("Repository \n \n" + user.getRepository());
 
         followers_received.setTextColor(Color.BLACK);
         followers_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
