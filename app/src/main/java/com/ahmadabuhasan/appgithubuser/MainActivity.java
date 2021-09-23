@@ -1,8 +1,10 @@
 package com.ahmadabuhasan.appgithubuser;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,10 +29,15 @@ public class MainActivity extends AppCompatActivity {
         showRecyclerUser();
     }
 
-    public ArrayList<User> getUserGithub() {
+    private ArrayList<User> getUserGithub() {
         @SuppressLint("Recycle") TypedArray dataAvatar = getResources().obtainTypedArray(R.array.avatar);
         String[] dataName = getResources().getStringArray(R.array.name);
         String[] dataUsername = getResources().getStringArray(R.array.username);
+        String[] dataLocation = getResources().getStringArray(R.array.location);
+        int[] dataRepository = getResources().getIntArray(R.array.repository);
+        String[] dataCompany = getResources().getStringArray(R.array.company);
+        int[] dataFollowers = getResources().getIntArray(R.array.followers);
+        int[] dataFollowing = getResources().getIntArray(R.array.following);
 
         ArrayList<User> listUser = new ArrayList<>();
         for (int i = 0; i < dataName.length; i++) {
@@ -38,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
             user.setAvatar(dataAvatar.getResourceId(i, -1));
             user.setName(dataName[i]);
             user.setUsername(dataUsername[i]);
+            user.setLocation(dataLocation[i]);
+            user.setRepository(dataRepository[i]);
+            user.setCompany(dataCompany[i]);
+            user.setFollowers(dataFollowers[i]);
+            user.setFollowing(dataFollowing[i]);
 
             listUser.add(user);
         }
@@ -48,5 +60,15 @@ public class MainActivity extends AppCompatActivity {
         rv_github.setLayoutManager(new LinearLayoutManager(this));
         UserAdapter userAdapter = new UserAdapter(list);
         rv_github.setAdapter(userAdapter);
+
+        userAdapter.setOnItemClickCallback(this::showSelectedUser);
+    }
+
+    private void showSelectedUser(User user) {
+        Toast.makeText(this, "You choose " + user.getName(), Toast.LENGTH_SHORT).show();
+
+        Intent i = new Intent(MainActivity.this, UserDetailActivity.class);
+        i.putExtra(UserDetailActivity.EXTRA_USER, user);
+        startActivity(i);
     }
 }
