@@ -64,31 +64,34 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <Button
-                        android:id="@+id/bt1"
-                        style="?android:attr/buttonBarButtonStyle"
+                        android:id="@+id/repository_received"
+                        style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="0dp"
-                        android:layout_height="75dp"
+                        android:layout_height="85dp"
                         android:layout_margin="2dp"
                         android:layout_weight="0.3"
-                        android:text="" />
+                        android:entries="@array/repository"
+                        app:strokeColor="@color/black" />
 
                     <Button
-                        android:id="@+id/bt2"
-                        style="?android:attr/buttonBarButtonStyle"
+                        android:id="@+id/followers_received"
+                        style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="0dp"
-                        android:layout_height="75dp"
+                        android:layout_height="85dp"
                         android:layout_margin="2dp"
                         android:layout_weight="0.3"
-                        android:text="" />
+                        android:entries="@array/followers"
+                        app:strokeColor="@color/black" />
 
                     <Button
-                        android:id="@+id/bt3"
-                        style="?android:attr/buttonBarButtonStyle"
+                        android:id="@+id/following_received"
+                        style="?attr/materialButtonOutlinedStyle"
                         android:layout_width="0dp"
-                        android:layout_height="75dp"
+                        android:layout_height="85dp"
                         android:layout_margin="2dp"
                         android:layout_weight="0.3"
-                        android:text="" />
+                        android:entries="@array/following"
+                        app:strokeColor="@color/black" />
 
                 </LinearLayout>
 
@@ -100,19 +103,21 @@
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@id/linear1">
 
-                    <androidx.cardview.widget.CardView
+                    <TextView
+                        android:id="@+id/tv_company_received"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
-                        <TextView
-                            android:id="@+id/tv_location_received"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:text="@string/location_text"
-                            android:textColor="@color/black" />
-
-                    </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tv_location_received"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
