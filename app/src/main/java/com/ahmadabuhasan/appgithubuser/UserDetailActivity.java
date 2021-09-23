@@ -3,6 +3,7 @@ package com.ahmadabuhasan.appgithubuser;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,8 +16,9 @@ public class UserDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "extra_user";
     CircleImageView img_avatar_received;
-    TextView tv_name_received;
+    TextView tv_name_received, tv_username_received, tv_location_received;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,12 +30,22 @@ public class UserDetailActivity extends AppCompatActivity {
 
         img_avatar_received = findViewById(R.id.img_avatar_received);
         tv_name_received = findViewById(R.id.tv_name_received);
+        tv_username_received = findViewById(R.id.tv_username_received);
+        tv_location_received = findViewById(R.id.tv_location_received);
 
         User user = getIntent().getParcelableExtra(EXTRA_USER);
         int img_avatar = user.getAvatar();
         String text = user.getName();
+        String text1 = user.getUsername();
+        String text2 = user.getLocation();
+        String text3 = user.getRepository();
+        String text4 = user.getCompany();
+
         img_avatar_received.setImageResource(img_avatar);
         tv_name_received.setText(text);
+        tv_username_received.setText("@" + text1);
+        tv_location_received.setText(text2);
+
     }
 
     @Override
