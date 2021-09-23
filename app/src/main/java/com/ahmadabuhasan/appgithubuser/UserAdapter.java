@@ -1,13 +1,11 @@
 package com.ahmadabuhasan.appgithubuser;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -46,8 +44,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
                 .load(user.getAvatar())
                 .apply(new RequestOptions().override(350, 350))
                 .into(holder.img_avatar);
-        holder.tv_name.setText(user.name);
-        holder.tv_username.setText("@" + user.username);
+        holder.tv_name.setText(user.getName());
+        holder.tv_username.setText("@" + user.getUsername());
 
         holder.itemView.setOnClickListener(v -> onItemClickCallback.onItemClicked(listUser.get(holder.getAdapterPosition())));
     }

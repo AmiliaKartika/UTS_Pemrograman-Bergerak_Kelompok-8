@@ -30,30 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private ArrayList<User> getUserGithub() {
-        @SuppressLint("Recycle") TypedArray dataAvatar = getResources().obtainTypedArray(R.array.avatar);
-        String[] dataName = getResources().getStringArray(R.array.name);
-        String[] dataUsername = getResources().getStringArray(R.array.username);
-        String[] dataLocation = getResources().getStringArray(R.array.location);
-        int[] dataRepository = getResources().getIntArray(R.array.repository);
-        String[] dataCompany = getResources().getStringArray(R.array.company);
-        int[] dataFollowers = getResources().getIntArray(R.array.followers);
-        int[] dataFollowing = getResources().getIntArray(R.array.following);
 
-        ArrayList<User> listUser = new ArrayList<>();
-        for (int i = 0; i < dataName.length; i++) {
-            User user = new User();
-            user.setAvatar(dataAvatar.getResourceId(i, -1));
-            user.setName(dataName[i]);
-            user.setUsername(dataUsername[i]);
-            user.setLocation(dataLocation[i]);
-            user.setRepository(dataRepository[i]);
-            user.setCompany(dataCompany[i]);
-            user.setFollowers(dataFollowers[i]);
-            user.setFollowing(dataFollowing[i]);
-
-            listUser.add(user);
-        }
-        return listUser;
     }
 
     private void showRecyclerUser() {
