@@ -21,6 +21,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
 
     private final ArrayList<User> listUser;
 
+    private OnItemClickCallback onItemClickCallback;
+
+    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
+        this.onItemClickCallback = onItemClickCallback;
+    }
+
     public UserAdapter(ArrayList<User> list) {
         this.listUser = list;
     }
@@ -43,15 +49,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
         holder.tv_name.setText(user.name);
         holder.tv_username.setText("@" + user.username);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(holder.itemView.getContext(), "You choose " + user.getName(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(v.getContext(), UserDetailActivity.class);
-                i.putExtra(UserDetailActivity.EXTRA_USER, user);
-                v.getContext().startActivity(i);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> onItemClickCallback.onItemClicked(listUser.get(holder.getAdapterPosition())));
     }
 
     @Override
@@ -70,5 +68,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
             tv_name = itemView.findViewById(R.id.tv_name);
             tv_username = itemView.findViewById(R.id.tv_username);
         }
+    }
+
+    public interface OnItemClickCallback {
+        void onItemClicked(User data);
     }
 }
