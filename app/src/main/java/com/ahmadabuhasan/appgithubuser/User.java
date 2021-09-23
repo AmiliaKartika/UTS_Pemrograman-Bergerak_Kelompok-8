@@ -8,7 +8,7 @@ public class User implements Parcelable {
     String username;
     String name;
     String location;
-    String repository;
+    int repository;
     String company;
     int followers;
     int following;
@@ -45,11 +45,11 @@ public class User implements Parcelable {
         this.location = location;
     }
 
-    public String getRepository() {
+    public int getRepository() {
         return repository;
     }
 
-    public void setRepository(String repository) {
+    public void setRepository(int repository) {
         this.repository = repository;
     }
 
@@ -85,7 +85,7 @@ public class User implements Parcelable {
         username = in.readString();
         name = in.readString();
         location = in.readString();
-        repository = in.readString();
+        repository = in.readInt();
         company = in.readString();
         followers = in.readInt();
         following = in.readInt();
@@ -97,7 +97,7 @@ public class User implements Parcelable {
         dest.writeString(username);
         dest.writeString(name);
         dest.writeString(location);
-        dest.writeString(repository);
+        dest.writeInt(repository);
         dest.writeString(company);
         dest.writeInt(followers);
         dest.writeInt(following);
