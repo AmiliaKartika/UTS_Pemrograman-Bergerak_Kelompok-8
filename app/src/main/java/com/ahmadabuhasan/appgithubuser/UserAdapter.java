@@ -1,5 +1,6 @@
 package com.ahmadabuhasan.appgithubuser;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
         return new CardViewHolder(view);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull UserAdapter.CardViewHolder holder, int position) {
         User user = listUser.get(position);
@@ -39,7 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
                 .apply(new RequestOptions().override(350, 350))
                 .into(holder.img_avatar);
         holder.tv_name.setText(user.name);
-        holder.tv_username.setText(user.username);
+        holder.tv_username.setText("@" + user.username);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
