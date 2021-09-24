@@ -46,20 +46,20 @@ public class UserDetailActivity extends AppCompatActivity {
         String text = user.getName();
         String text1 = user.getUsername();
         String text2 = user.getLocation();
-        int text3 = user.getRepository();
+        String text3 = user.getRepository();
         String text4 = user.getCompany();
-        int text5 = user.getFollowers();
-        int text6 = user.getFollowing();
+        String text5 = user.getFollowers();
+        String text6 = user.getFollowing();
 
         img_avatar_received.setImageResource(img_avatar);
         tv_name_received.setText(text);
         tv_username_received.setText("@" + text1);
         tv_location_received.setText("Location : " + text2);
-        tv_company_received.setText("Company : " + text3);
+        tv_company_received.setText("Company : " + text4);
 
         repository_received.setTextColor(Color.BLACK);
         repository_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-        repository_received.setText("Repository \n \n" + user.getRepository());
+        repository_received.setText("Repository \n \n" + text3);
 
         followers_received.setTextColor(Color.BLACK);
         followers_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
