@@ -1,6 +1,7 @@
 package com.ahmadabuhasan.appgithubuser;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView rv_github;
     private final ArrayList<User> list = new ArrayList<>();
+    private static long back_pressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +72,14 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(MainActivity.this, UserDetailActivity.class);
         i.putExtra(UserDetailActivity.EXTRA_USER, user);
         startActivity(i);
+    }
+
+    public void onBackPressed() {
+        if (back_pressed + 2000 > System.currentTimeMillis()) {
+            finishAffinity();
+        } else {
+            Toast.makeText((Context) this, "Press once again to exit", Toast.LENGTH_SHORT).show();
+        }
+        back_pressed = System.currentTimeMillis();
     }
 }
