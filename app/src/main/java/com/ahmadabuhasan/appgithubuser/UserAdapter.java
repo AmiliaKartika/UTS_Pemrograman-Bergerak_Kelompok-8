@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,9 +17,10 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder> {
+public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder> implements Filterable {
 
-    private final ArrayList<User> listUser;
+    ArrayList<User> listUser, dataFilter;
+    SearchFilter searchFilter;
 
     private OnItemClickCallback onItemClickCallback;
 
@@ -27,6 +30,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
 
     public UserAdapter(ArrayList<User> list) {
         this.listUser = list;
+        this.dataFilter = list;
     }
 
     @NonNull
@@ -53,6 +57,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.CardViewHolder
     @Override
     public int getItemCount() {
         return listUser.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (searchFilter == null) {
+            searchFilter = new SearchFilter(dataFilter, this);
+        }
+        return searchFilter;
+    }
+
+    public void clear() {
+        listUser.clear();
+        notifyDataSetChanged();
     }
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
