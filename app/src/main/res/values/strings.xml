@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">AppGithubUser</string>
     <string name="share">Share</string>
+    <string name="search">Search</string>
 
     <!-- Other string resources-->
 
