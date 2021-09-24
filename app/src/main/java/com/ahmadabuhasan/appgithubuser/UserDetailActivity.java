@@ -4,9 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.TypedValue;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +24,7 @@ public class UserDetailActivity extends AppCompatActivity {
     CircleImageView img_avatar_received;
     TextView tv_name_received, tv_username_received, tv_location_received, tv_company_received;
     Button repository_received, followers_received, following_received;
+    User user = new User();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -41,7 +45,7 @@ public class UserDetailActivity extends AppCompatActivity {
         followers_received = findViewById(R.id.followers_received);
         following_received = findViewById(R.id.following_received);
 
-        User user = getIntent().getParcelableExtra(EXTRA_USER);
+        user = getIntent().getParcelableExtra(EXTRA_USER);
         int img_avatar = user.getAvatar();
         String text = user.getName();
         String text1 = user.getUsername();
@@ -71,16 +75,36 @@ public class UserDetailActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.optionmenu, menu);
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             onBackPressed();
+        } else if (item.getItemId() == R.id.share) {
+            String shareIntent = "Github User" +
+                    "\n Name: " + user.getName() +
+                    "\n Username: " + user.getUsername() +
+                    "\n Company: " + user.getCompany() +
+                    "\n Location: " + user.getLocation() +
+                    "\n Repository: " + user.getRepository() +
+                    "\n Followers: " + user.getFollowers() +
+                    "\n Following: " + user.getFollowing();
+            Intent i = new Intent();
+            i.setAction(Intent.ACTION_SEND);
+            i.putExtra(Intent.EXTRA_TEXT, shareIntent);
+            i.setType("text/plain");
+            startActivity(Intent.createChooser(i, "Share using"));
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
     }
 }
