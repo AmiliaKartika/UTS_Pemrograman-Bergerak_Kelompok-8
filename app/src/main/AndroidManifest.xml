@@ -3,25 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.ahmadabuhasan.appgithubuser">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.intent.action.SEND" />
+
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_me"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_me_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppGithubUser"
         tools:ignore="AllowBackup">
-        <activity
-            android:name=".UserDetailActivity"
-            android:theme="@style/Custom" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".UserDetailActivity"
+            android:theme="@style/Custom" />
     </application>
 
 </manifest>
