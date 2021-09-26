@@ -1,123 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".UserDetailActivity">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/img_avatar_received"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginBottom="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/tv_name_received"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_avatar_received" />
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/tv_username_received"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_received" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_avatar_received"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="300dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        app:cardCornerRadius="1dp"
-        app:layout_constraintTop_toBottomOf="@id/tv_username_received">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/tv_name_received"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_avatar_received" />
 
-            <LinearLayout
-                android:id="@+id/linear1"
+        <TextView
+            android:id="@+id/tv_username_received"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_received" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="1dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_username_received">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/repository_received"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="85dp"
-                    android:layout_margin="2dp"
-                    android:layout_weight="0.3"
-                    android:entries="@array/repository"
-                    app:strokeColor="@color/black" />
-
-                <Button
-                    android:id="@+id/followers_received"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="85dp"
-                    android:layout_margin="2dp"
-                    android:layout_weight="0.3"
-                    android:entries="@array/followers"
-                    app:strokeColor="@color/black" />
-
-                <Button
-                    android:id="@+id/following_received"
-                    style="?attr/materialButtonOutlinedStyle"
-                    android:layout_width="0dp"
-                    android:layout_height="85dp"
-                    android:layout_margin="2dp"
-                    android:layout_weight="0.3"
-                    android:entries="@array/following"
-                    app:strokeColor="@color/black" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linear2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/linear1">
-
-                <TextView
-                    android:id="@+id/tv_company_received"
+                <LinearLayout
+                    android:id="@+id/linear1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_location_received"
+                    <Button
+                        android:id="@+id/repository_received"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="85dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.3"
+                        android:entries="@array/repository"
+                        app:strokeColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/followers_received"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="85dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.3"
+                        android:entries="@array/followers"
+                        app:strokeColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/following_received"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="85dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="0.3"
+                        android:entries="@array/following"
+                        app:strokeColor="@color/black" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
-                    android:textAlignment="center"
-                    android:textColor="@color/black" />
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/linear1">
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_company_received"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_location_received"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
 
-    </androidx.cardview.widget.CardView>
+                </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
