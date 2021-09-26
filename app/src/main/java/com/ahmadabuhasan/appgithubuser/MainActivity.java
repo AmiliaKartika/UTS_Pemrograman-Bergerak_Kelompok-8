@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -66,7 +68,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showRecyclerUser() {
-        rv_github.setLayoutManager(new LinearLayoutManager(this));
+        if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            rv_github.setLayoutManager(new GridLayoutManager(this, 2));
+        } else {
+            rv_github.setLayoutManager(new LinearLayoutManager(this));
+        }
+
         userAdapter = new UserAdapter(list);
         rv_github.setAdapter(userAdapter);
 
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         if (back_pressed + 2000 > System.currentTimeMillis()) {
             finishAffinity();
         } else {
-            Toast.makeText((Context) this, "Press once again to exit", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Press once again to exit", Toast.LENGTH_SHORT).show();
         }
         back_pressed = System.currentTimeMillis();
     }
