@@ -1,9 +1,5 @@
 package com.ahmadabuhasan.appgithubuser;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,22 +7,22 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.ahmadabuhasan.appgithubuser.databinding.ActivityUserDetailBinding;
+import com.bumptech.glide.Glide;
 
 import java.util.Objects;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_USER = "extra_user";
-    CircleImageView img_avatar_received;
-    TextView tv_name_received, tv_username_received, tv_location_received, tv_company_received;
-    Button repository_received, followers_received, following_received;
     User user = new User();
 
-    @SuppressLint("SetTextI18n")
+    ActivityUserDetailBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,42 +32,38 @@ public class UserDetailActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        img_avatar_received = findViewById(R.id.img_avatar_received);
-        tv_name_received = findViewById(R.id.tv_name_received);
-        tv_username_received = findViewById(R.id.tv_username_received);
-        tv_location_received = findViewById(R.id.tv_location_received);
-        tv_company_received = findViewById(R.id.tv_company_received);
-        repository_received = findViewById(R.id.repository_received);
-        followers_received = findViewById(R.id.followers_received);
-        following_received = findViewById(R.id.following_received);
+        binding = ActivityUserDetailBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         user = getIntent().getParcelableExtra(EXTRA_USER);
-        int img_avatar = user.getAvatar();
-        String text = user.getName();
-        String text1 = user.getUsername();
-        String text2 = user.getLocation();
-        String text3 = user.getRepository();
-        String text4 = user.getCompany();
-        String text5 = user.getFollowers();
-        String text6 = user.getFollowing();
+        int imgAvatar = user.getAvatar();
+        String textName = user.getName();
+        String textUsername = user.getUsername();
+        String textLocation = user.getLocation();
+        String textRepository = user.getRepository();
+        String textCompany = user.getCompany();
+        String textFollowers = user.getFollowers();
+        String textFollowing = user.getFollowing();
 
-        img_avatar_received.setImageResource(img_avatar);
-        tv_name_received.setText(text);
-        tv_username_received.setText("@" + text1);
-        tv_location_received.setText("Location : " + text2);
-        tv_company_received.setText("Company : " + text4);
+        Glide.with(this)
+                .load(imgAvatar)
+                .into(binding.imgAvatarReceived);
+        binding.tvNameReceived.setText(textName);
+        binding.tvUsernameReceived.setText(String.format("@%s", textUsername));
+        binding.tvLocationReceived.setText(String.format("Location : %s", textLocation));
+        binding.tvCompanyReceived.setText(String.format("Company : %s", textCompany));
 
-        repository_received.setTextColor(Color.BLACK);
-        repository_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-        repository_received.setText("Repository \n \n" + text3);
+        binding.repositoryReceived.setTextColor(Color.BLACK);
+        binding.repositoryReceived.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+        binding.repositoryReceived.setText(String.format("Repository \n \n%s", textRepository));
 
-        followers_received.setTextColor(Color.BLACK);
-        followers_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-        followers_received.setText("Followers \n \n" + text5);
+        binding.followersReceived.setTextColor(Color.BLACK);
+        binding.followersReceived.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+        binding.followersReceived.setText(String.format("Followers \n \n%s", textFollowers));
 
-        following_received.setTextColor(Color.BLACK);
-        following_received.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
-        following_received.setText("Following \n \n" + text6);
+        binding.followingReceived.setTextColor(Color.BLACK);
+        binding.followingReceived.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
+        binding.followingReceived.setText(String.format("Following \n \n%s", textFollowing));
     }
 
     @Override
@@ -101,10 +93,5 @@ public class UserDetailActivity extends AppCompatActivity {
             startActivity(Intent.createChooser(i, "Share using"));
         }
         return true;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 }
