@@ -1,6 +1,5 @@
 package com.ahmadabuhasan.appgithubuser;
 
-import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -23,25 +22,25 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView rv_github;
     UserAdapter userAdapter;
+    private RecyclerView rvGithub;
     private final ArrayList<User> list = new ArrayList<>();
-    private static long back_pressed;
+    private static long backPressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rv_github = findViewById(R.id.rv_github);
-        rv_github.setHasFixedSize(true);
+        rvGithub = findViewById(R.id.rvGithub);
+        rvGithub.setHasFixedSize(true);
 
         list.addAll(getUserGithub());
         showRecyclerUser();
     }
 
     public ArrayList<User> getUserGithub() {
-        @SuppressLint("Recycle") TypedArray dataAvatar = getResources().obtainTypedArray(R.array.avatar);
+        TypedArray dataAvatar = getResources().obtainTypedArray(R.array.avatar);
         String[] dataName = getResources().getStringArray(R.array.name);
         String[] dataUsername = getResources().getStringArray(R.array.username);
         String[] dataLocation = getResources().getStringArray(R.array.location);
@@ -69,13 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void showRecyclerUser() {
         if (getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            rv_github.setLayoutManager(new GridLayoutManager(this, 2));
+            rvGithub.setLayoutManager(new GridLayoutManager(this, 2));
         } else {
-            rv_github.setLayoutManager(new LinearLayoutManager(this));
+            rvGithub.setLayoutManager(new LinearLayoutManager(this));
         }
 
         userAdapter = new UserAdapter(list);
-        rv_github.setAdapter(userAdapter);
+        rvGithub.setAdapter(userAdapter);
 
         userAdapter.setOnItemClickCallback(this::showSelectedUser);
     }
@@ -89,15 +88,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onBackPressed() {
-        if (back_pressed + 2000 > System.currentTimeMillis()) {
+        if (backPressed + 2000 > System.currentTimeMillis()) {
             finishAffinity();
         } else {
             Toast.makeText(this, "Press once again to exit", Toast.LENGTH_SHORT).show();
         }
-        back_pressed = System.currentTimeMillis();
+        backPressed = System.currentTimeMillis();
     }
 
-    @SuppressLint("ResourceType")
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
