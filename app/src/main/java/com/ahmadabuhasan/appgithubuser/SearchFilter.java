@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class SearchFilter extends Filter {
 
-    ArrayList<User> filterList;
+    final ArrayList<User> filterList;
     UserAdapter userAdapter;
 
     public SearchFilter(ArrayList<User> filterList, UserAdapter userAdapter) {
@@ -34,7 +34,6 @@ public class SearchFilter extends Filter {
         return results;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
         userAdapter.listUser = (ArrayList<User>) results.values;
