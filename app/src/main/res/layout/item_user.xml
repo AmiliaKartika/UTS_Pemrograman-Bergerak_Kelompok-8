@@ -13,11 +13,6 @@
     card_view:cardCornerRadius="10dp"
     card_view:cardElevation="5dp">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/card_edge_black" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
