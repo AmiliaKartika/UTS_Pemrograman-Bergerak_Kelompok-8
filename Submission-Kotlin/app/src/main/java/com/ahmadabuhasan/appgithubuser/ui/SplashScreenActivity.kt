@@ -21,5 +21,8 @@ class SplashScreenActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }, 3000)
+        /*
+        Hindari penggunaan magic number, seperti angka ini. Sebaiknya disimpan dalam bentuk constant value agar code mudah dipahami.
+         */
     }
 }

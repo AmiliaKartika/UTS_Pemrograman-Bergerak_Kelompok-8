@@ -13,6 +13,9 @@ class UserDetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_USER = "extra_user"
     }
+    /*
+    Penulisan companion object sebaiknya diletakkan di paling bawah dari sebuah class sesuai dengan konvensi penulisan kode Kotlin di tautan https://kotlinlang.org/docs/reference/coding-conventions.html#class-layout.
+     */
 
     private lateinit var binding: ActivityUserDetailBinding
 
@@ -22,6 +25,9 @@ class UserDetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Detail User"
+        /*
+        Hindari penggunaan hardcoded string. Kamu bisa memindahkannya kedalam file strings.xml.
+         */
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
