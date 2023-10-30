@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">MyRecyclerView</string>
+    <string name="move_with_data">MoveWithData</string>
+    <string name="mahasiswa_name">Nama Mahasiswa</string>
+    <string name="nim">NIM</string>
+    <string name="alamat">Alamat</string>
+    <string-array name="data_name">
+        <item>Ahmad Hanif Azhari</item>
+        <item>Amilia Kartika</item>
+        <item>Muhammad Mayda Ary Pratama</item>
+        <item>Tegar Irsyad Kholidin</item>
+        <item>Elvira Saharani Rajagukguk</item>
+        <item>Viona Dillarendza</item>
+        <item>Vazla Annisya Rahmadilla</item>
+        <item>Tanti Ardiana</item>
+        <item>Oktari</item>
+        <item>Asmi Naya Fitri</item>
+    </string-array>
+    <string-array name="data_nim">
+        <item>09031282126082</item>
+        <item>09031282126055</item>
+        <item>09031182126019</item>
+        <item>09031282126112</item>
+        <item>09031282126109</item>
+        <item>09031282126100</item>
+        <item>09031282126073</item>
+        <item>09031182126025</item>
+        <item>09031182126028</item>
+        <item>09031282126088</item>
+    </string-array>
+    <integer-array name="data_photo">
+        <item>@drawable/hanif</item>
+        <item>@drawable/amilia</item>
+        <item>@drawable/ary</item>
+        <item>@drawable/tegar</item>
+        <item>@drawable/elvira</item>
+        <item>@drawable/viona</item>
+        <item>@drawable/vazla</item>
+        <item>@drawable/tanti</item>
+        <item>@drawable/oktari</item>
+        <item>@drawable/naya</item>
+    </integer-array>
+    <string-array name="data_alamat">
+        <item>Jl. Mahasiswa Kecamatan: Kakak Tua, Kabupaten: Kali Doni</item>
+        <item>Jl. Swadaya Kecamatan: Talang Kelapa, Kabupaten: Banyumanis</item>
+        <item>Jl. Malik Kecamatan: Hatta, Kabupaten: Anies</item>
+        <item>Jl. Soekarno Kecamatan: Puan, Kabupaten: Megawati</item>
+        <item>Jl. Itok Kecamatan: Pariban, Kabupaten: Rajagukguk</item>
+        <item>Jl. Burhanudin Maling Kecamatan: VeriVera, Kabupaten: Impiano</item>
+        <item>Jl. Telur Puyuh Kecamatan: Ayam Berkokok, Kabupaten: Sambung Ayam</item>
+        <item>Jl. Kenangan Kecamatan: Rindu, Kabupaten: Mantan</item>
+        <item>Jl. Air Tawar Kecamatan: Banyumanis, Kabupaten: Banyuasin</item>
+        <item>Jl. Bunga Kecamatan: Sukamoro, Kabupaten: Banyuasin</item>
+    </string-array>
+    <string-array name="data_email">
+        <item>hanifazhari@gmail.com</item>
+        <item>iamtwomlks@gmail.com</item>
+        <item>arymayda@gmail.com</item>
+        <item>tegarirsyad@gmail.com</item>
+        <item>elviragg@gmail.com</item>
+        <item>onaarendza@gmail.com</item>
+        <item>vazla.annisya06@gmail.com</item>
+        <item>tantiardiana@gmail.com</item>
+        <item>thaoktari@gmail.com</item>
+        <item>asminayah@gmail.com</item>
+    </string-array>
+</resources>
